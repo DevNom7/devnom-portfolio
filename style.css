@@ -1,5 +1,5 @@
 /* === DevNom Portfolio Landing Page Styles === */
-/* Pure black background with centered breathing organism and medical BPM monitor */
+/* Pure black background with centered breathing organism and medical RR monitor */
 
 /* Main page layout: Black background, centered content */
 body {
@@ -118,9 +118,9 @@ body {
   filter: brightness(1.08) saturate(1.08); /* Slightly brighter */
 }
 
-/* === MEDICAL BPM MONITOR === */
+/* === MEDICAL RR MONITOR === */
 /* Fixed position medical-style monitor in top right */
-.bpm-indicator {
+.rr-indicator {
   position: fixed;
   top: 24px;
   right: 24px;
@@ -139,17 +139,17 @@ body {
   user-select: none; /* Can't select text */
 }
 
-/* BPM number display */
-.bpm-value {
+/* RR number display */
+.rr-value {
   font-size: 1.8rem;
   font-weight: 700;
   color: #ff0033;
   text-shadow: 0 0 8px #ff003399;
-  animation: bpm-pulse 3s infinite ease-in-out; /* Pulses with breathing */
+  animation: rr-pulse 3s infinite ease-in-out; /* Pulses with breathing */
 }
 
-/* "BPM" label */
-.bpm-label {
+/* "RR" label */
+.rr-label {
   font-size: 0.9rem;
   color: #ff6666;
   font-weight: 600;
@@ -157,7 +157,7 @@ body {
 }
 
 /* Container for up/down arrow controls */
-.bpm-controls {
+.rr-controls {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -165,7 +165,7 @@ body {
 }
 
 /* Individual arrow buttons */
-.bpm-arrow {
+.rr-arrow {
   background: rgba(255, 0, 51, 0.1);
   border: 1px solid #ff0033;
   border-radius: 4px;
@@ -182,7 +182,7 @@ body {
 }
 
 /* Arrow button hover effects */
-.bpm-arrow:hover {
+.rr-arrow:hover {
   background: rgba(255, 0, 51, 0.2);
   color: #ff4466;
   box-shadow: 0 0 8px #ff003366;
@@ -190,13 +190,13 @@ body {
 }
 
 /* Arrow button active (clicked) effect */
-.bpm-arrow:active {
+.rr-arrow:active {
   transform: scale(0.95);
   background: rgba(255, 0, 51, 0.3);
 }
 
-/* BPM number pulsing animation that syncs with breathing */
-@keyframes bpm-pulse {
+/* RR number pulsing animation that syncs with breathing */
+@keyframes rr-pulse {
   0% { 
     color: #ff0033;
     text-shadow: 0 0 8px #ff003399;
@@ -214,22 +214,22 @@ body {
 /* === RESPONSIVE DESIGN === */
 /* Mobile-friendly adjustments */
 @media (max-width: 600px) {
-  /* Smaller BPM monitor on mobile */
-  .bpm-indicator {
+  /* Smaller RR monitor on mobile */
+  .rr-indicator {
     top: 16px;
     right: 16px;
     padding: 8px 12px;
   }
-  .bpm-value {
+  .rr-value {
     font-size: 1.4rem;
   }
-  .bpm-label {
+  .rr-label {
     font-size: 0.8rem;
   }
-  .bpm-controls {
+  .rr-controls {
     margin-left: 6px;
   }
-  .bpm-arrow {
+  .rr-arrow {
     width: 18px;
     height: 14px;
     font-size: 0.6rem;
