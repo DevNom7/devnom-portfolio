@@ -247,3 +247,135 @@ body {
     height: 100%;
   }
 }
+
+/* === Welcome Section Styles === */
+.welcome-section {
+  text-align: center;
+  margin-top: 60px;
+  padding: 25px;
+  color: #e8e8e8;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ff003322;
+  border-radius: 12px;
+  background: rgba(5, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  position: relative;
+}
+
+/* Tech interface corner elements */
+.welcome-section::before,
+.welcome-section::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff0033;
+}
+
+.welcome-section::before {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.welcome-section::after {
+  bottom: 8px;
+  right: 8px;
+  border-left: none;
+  border-top: none;
+}
+
+.welcome-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #e8e8e8;
+  margin-bottom: 20px;
+  text-shadow: 0 0 18px #ff003399, 0 0 32px #33000099;
+  font-family: 'Courier New', monospace;
+  animation: text-breathing 3s infinite ease-in-out;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.welcome-subtitle {
+  font-size: 1.3rem;
+  color: #ff6666;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.welcome-tagline {
+  font-size: 1rem;
+  color: #00ff88;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  opacity: 0.8;
+  text-transform: uppercase;
+  animation: status-blink 2s infinite ease-in-out;
+}
+
+/* Status indicator blinking animation */
+@keyframes status-blink {
+  0%, 80% { 
+    opacity: 0.8;
+    color: #00ff88;
+  }
+  90%, 100% { 
+    opacity: 0.4;
+    color: #00cc66;
+  }
+}
+
+/* Text breathing animation */
+@keyframes text-breathing {
+  0% { 
+    color: #e8e8e8;
+    text-shadow: 0 0 8px #ff003399, 0 0 16px #33000099;
+  }
+  30% {
+    color: #f0f0f0;
+    text-shadow: 0 0 18px #ff003399, 0 0 32px #ff003366, 0 0 48px #ff003322;
+  }
+  100% { 
+    color: #e8e8e8;
+    text-shadow: 0 0 8px #ff003399, 0 0 16px #33000099;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+  }
+  
+  .welcome-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  
+  .welcome-tagline {
+    font-size: 0.9rem;
+  }
+  
+  .welcome-section {
+    margin-top: 40px;
+    padding: 20px;
+    max-width: 90%;
+  }
+  
+  .welcome-section::before,
+  .welcome-section::after {
+    width: 15px;
+    height: 15px;
+  }
+}

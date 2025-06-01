@@ -23,6 +23,7 @@
   text-shadow: 0 0 8px #ff003399;
   animation: text-breathing 3s infinite ease-in-out; /* Same breathing as organism */
   position: relative;
+  text-decoration: none; /* Remove underline */
 }
 
 .nav-links {
