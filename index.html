@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevNom Element</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Medical-style BPM Monitor: Shows breathing rate with interactive controls -->
+  <div class="bpm-indicator">
+    <span class="bpm-value" id="bpm-value">Loading...</span>
+    <span class="bpm-label">BPM</span>
+    <!-- Up/Down arrows to control breathing rate -->
+    <div class="bpm-controls">
+      <button class="bpm-arrow" id="bpm-up" aria-label="Increase breathing rate">▲</button>
+      <button class="bpm-arrow" id="bpm-down" aria-label="Decrease breathing rate">▼</button>
+    </div>
+  </div>
+
+  <!-- Main Interactive Element: Clickable breathing organism that links to projects -->
+  <a href="portfolio.html" class="element-link" id="tile-link">
+    <!-- Container for the breathing tile -->
+    <div class="tile-zoom">
+      <!-- Red breathing glow behind the PNG -->
+      <div class="glow-bg"></div>
+      <!-- Main PNG image (the DevNom tile) -->
+      <img src="carbon-fiber-texture.png" alt="DevNom Tile" class="main-img">
+    </div>
+  </a>
+
+  <!-- JavaScript for breathing animations and BPM controls -->
+  <script src="script.js"></script>
+</body>
+</html> 

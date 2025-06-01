@@ -1,0 +1,249 @@
+/* === DevNom Portfolio Landing Page Styles === */
+/* Pure black background with centered breathing organism and medical BPM monitor */
+
+/* Main page layout: Black background, centered content */
+body {
+  margin: 0;
+  background: #000; /* Pure black background */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* === MAIN INTERACTIVE ELEMENT === */
+/* Clickable link that contains the breathing organism */
+.element-link {
+  display: inline-block;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Container for the breathing tile with rounded corners */
+.tile-zoom {
+  position: relative;
+  display: inline-block;
+  box-shadow: none;
+  border-radius: 18px;
+}
+
+/* === BREATHING ANIMATIONS === */
+/* Red glow that breathes behind the PNG image */
+.glow-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translate(-50%, -50%); /* Center the glow */
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff0033 0%, #ff0033 60%, transparent 100%);
+  opacity: 0.15;
+  filter: blur(32px);
+  z-index: 0; /* Behind the image */
+  pointer-events: none; /* Don't interfere with clicks */
+  animation: red-breathing 3s infinite ease-in-out;
+  /* Smooth transitions when breathing rate changes */
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Red glow breathing animation: Quick inhale (30%), slow exhale (70%) */
+@keyframes red-breathing {
+  0% { 
+    opacity: 0.15; 
+    filter: blur(32px); 
+  }
+  30% { /* Peak of inhale */
+    opacity: 0.45; 
+    filter: blur(40px); 
+  }
+  100% { /* End of exhale */
+    opacity: 0.15; 
+    filter: blur(32px); 
+  }
+}
+
+/* Main PNG image with breathing animation */
+.main-img {
+  display: block;
+  max-width: 100%;
+  width: 320px;
+  height: auto;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+  z-index: 2; /* Above the glow */
+  animation: image-breathing 3s infinite ease-in-out;
+  /* Smooth transitions when breathing rate changes */
+  transition: filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Image breathing animation: Subtle scale breathing that matches the glow */
+@keyframes image-breathing {
+  0% { 
+    transform: scale(1);
+  }
+  30% { /* Peak of inhale */
+    transform: scale(1.02);
+  }
+  100% { /* End of exhale */
+    transform: scale(1);
+  }
+}
+
+/* === HOVER EFFECTS === */
+/* When hovering over the breathing organism */
+.element-link:hover .glow-bg {
+  opacity: 0.6; /* Brighter glow */
+  filter: blur(64px); /* More blur */
+  width: 420px; /* Larger glow */
+  height: 420px;
+  transform: translate(-50%, -50%) scale(1.15); /* Slightly larger */
+}
+
+.element-link:hover .main-img,
+.element-link:focus .main-img {
+  transform: scale(1.15); /* Zoom the image */
+  filter: brightness(1.08) saturate(1.08); /* Slightly brighter */
+}
+
+/* === MEDICAL BPM MONITOR === */
+/* Fixed position medical-style monitor in top right */
+.bpm-indicator {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: rgba(15, 0, 0, 0.85); /* Dark red background */
+  border: 1px solid #ff0033;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Courier New', monospace; /* Medical device font */
+  color: #fff;
+  backdrop-filter: blur(8px); /* Glass effect */
+  box-shadow: 0 4px 24px #ff003322;
+  z-index: 100; /* Always on top */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none; /* Can't select text */
+}
+
+/* BPM number display */
+.bpm-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff0033;
+  text-shadow: 0 0 8px #ff003399;
+  animation: bpm-pulse 3s infinite ease-in-out; /* Pulses with breathing */
+}
+
+/* "BPM" label */
+.bpm-label {
+  font-size: 0.9rem;
+  color: #ff6666;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Container for up/down arrow controls */
+.bpm-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 8px;
+}
+
+/* Individual arrow buttons */
+.bpm-arrow {
+  background: rgba(255, 0, 51, 0.1);
+  border: 1px solid #ff0033;
+  border-radius: 4px;
+  color: #ff0033;
+  font-size: 0.7rem;
+  width: 20px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Courier New', monospace;
+}
+
+/* Arrow button hover effects */
+.bpm-arrow:hover {
+  background: rgba(255, 0, 51, 0.2);
+  color: #ff4466;
+  box-shadow: 0 0 8px #ff003366;
+  transform: scale(1.1);
+}
+
+/* Arrow button active (clicked) effect */
+.bpm-arrow:active {
+  transform: scale(0.95);
+  background: rgba(255, 0, 51, 0.3);
+}
+
+/* BPM number pulsing animation that syncs with breathing */
+@keyframes bpm-pulse {
+  0% { 
+    color: #ff0033;
+    text-shadow: 0 0 8px #ff003399;
+  }
+  30% { /* Peak intensity matches breathing peak */
+    color: #ff4466;
+    text-shadow: 0 0 12px #ff003399, 0 0 24px #ff003366;
+  }
+  100% { 
+    color: #ff0033;
+    text-shadow: 0 0 8px #ff003399;
+  }
+}
+
+/* === RESPONSIVE DESIGN === */
+/* Mobile-friendly adjustments */
+@media (max-width: 600px) {
+  /* Smaller BPM monitor on mobile */
+  .bpm-indicator {
+    top: 16px;
+    right: 16px;
+    padding: 8px 12px;
+  }
+  .bpm-value {
+    font-size: 1.4rem;
+  }
+  .bpm-label {
+    font-size: 0.8rem;
+  }
+  .bpm-controls {
+    margin-left: 6px;
+  }
+  .bpm-arrow {
+    width: 18px;
+    height: 14px;
+    font-size: 0.6rem;
+  }
+  
+  /* Breathing organism scales to fit mobile screens */
+  .tile-zoom, .glow-bg, .main-img {
+    width: 90vw;
+    height: 90vw;
+    max-width: 98vw;
+    max-height: 98vw;
+  }
+  .main-img, .glow-bg {
+    width: 100%;
+    height: 100%;
+  }
+}
