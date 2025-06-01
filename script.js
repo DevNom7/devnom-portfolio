@@ -55,15 +55,39 @@ let vitalsCompleted = false;  // Enable RR controls
 const rrUpButton = document.getElementById('rr-up');
 const rrDownButton = document.getElementById('rr-down');
 
+// Add this function to update the animation duration for the breathing organism
+function updateBreathingAnimation(duration) {
+  // Remove any existing dynamic styles
+  const existingStyle = document.getElementById('dynamic-breathing');
+  if (existingStyle) {
+    existingStyle.remove();
+  }
+  // Create new style element with updated animation durations
+  const style = document.createElement('style');
+  style.id = 'dynamic-breathing';
+  style.textContent = `
+    .glow-bg {
+      animation-duration: ${duration}s !important;
+    }
+    .main-img {
+      animation-duration: ${duration}s !important;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// Update the increase/decrease functions to sync animation
 function increaseRespiratoryRate() {
   if (currentRespiratoryRate > 1) currentRespiratoryRate--;
   updateRRDisplay(currentRespiratoryRate);
+  updateBreathingAnimation(currentRespiratoryRate);
   if (rrValue) rrValue.textContent = calculateRR(currentRespiratoryRate);
 }
 
 function decreaseRespiratoryRate() {
   if (currentRespiratoryRate < 10) currentRespiratoryRate++;
   updateRRDisplay(currentRespiratoryRate);
+  updateBreathingAnimation(currentRespiratoryRate);
   if (rrValue) rrValue.textContent = calculateRR(currentRespiratoryRate);
 }
 
@@ -72,21 +96,8 @@ if (rrUpButton && rrDownButton) {
   rrDownButton.addEventListener('click', decreaseRespiratoryRate);
 }
 
-// Initial setup
-updateRRDisplay(currentRespiratoryRate);
-showCalibrating();
-setTimeout(() => {
-  let readingIndex = 0;
-  const interval = setInterval(() => {
-    showFluctuatingRR(readingIndex);
-    readingIndex++;
-    if (readingIndex >= 8) {
-      clearInterval(interval);
-      showFinalRR();
-      vitalsCompleted = true;
-    }
-  }, 300);
-}, 1000);
+// Initial setup: sync animation with default rate
+updateBreathingAnimation(currentRespiratoryRate);
 
 // === INITIALIZATION ===
 // Start the vital signs simulation when the page finishes loading
@@ -105,4 +116,33 @@ window.addEventListener('load', () => {
       }
     }, 300);
   }, 1000);
-}); 
+});
+
+// === CLICK TO CONTINUE / FADE OUT TRANSITION ===
+const tileLink = document.getElementById('tile-link');
+const clickPrompt = document.getElementById('click-prompt');
+let navigating = false;
+
+function fadeOutAndNavigate() {
+  if (navigating) return;
+  navigating = true;
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = 'portfolio.html';
+  }, 650);
+}
+
+if (tileLink) {
+  tileLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    fadeOutAndNavigate();
+  });
+}
+if (clickPrompt) {
+  clickPrompt.addEventListener('click', fadeOutAndNavigate);
+  clickPrompt.tabIndex = 0;
+  clickPrompt.setAttribute('role', 'button');
+  clickPrompt.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') fadeOutAndNavigate();
+  });
+} 

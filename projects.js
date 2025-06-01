@@ -79,4 +79,40 @@ navLinks.forEach(link => {
 });
 */
 
-console.log('Projects page loaded successfully - text breathing animations active'); 
+console.log('Projects page loaded successfully - text breathing animations active');
+
+// === Hamburger Menu Toggle ===
+const hamburger = document.getElementById('hamburger');
+const navLinksMenu = document.getElementById('nav-links');
+if (hamburger && navLinksMenu) {
+  hamburger.addEventListener('click', () => {
+    const open = navLinksMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
+
+// === Project Description Slide Toggle (Mobile Only) ===
+if (window.innerWidth <= 700) {
+  function closeAllOverlays() {
+    document.querySelectorAll('.project-overlay').forEach(overlay => {
+      overlay.style.maxHeight = null;
+      overlay.style.transition = 'max-height 0.4s cubic-bezier(0.4,0.2,0.2,1)';
+      overlay.parentElement.querySelector('.desc-toggle').setAttribute('aria-expanded', 'false');
+      overlay.parentElement.querySelector('.desc-toggle').textContent = 'Show Description';
+    });
+  }
+  document.querySelectorAll('.desc-toggle').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const overlay = this.parentElement.querySelector('.project-overlay');
+      if (!overlay) return;
+      const isOpen = overlay.style.maxHeight && overlay.style.maxHeight !== '0px';
+      closeAllOverlays();
+      if (!isOpen) {
+        overlay.style.maxHeight = overlay.scrollHeight + 'px';
+        overlay.style.transition = 'max-height 0.4s cubic-bezier(0.4,0.2,0.2,1)';
+        this.setAttribute('aria-expanded', 'true');
+        this.textContent = 'Hide Description';
+      }
+    });
+  });
+} 

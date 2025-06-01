@@ -336,4 +336,140 @@
   .action-btn {
     width: 100%;
   }
+}
+
+/* === Hamburger Menu Styles === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 200;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 4px 0;
+  background: #ff0033;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0 8px;
+    height: 54px;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 70vw;
+    height: 100vh;
+    background: rgba(20,0,0,0.98);
+    box-shadow: -2px 0 24px #ff003322;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 80px 24px 24px 24px;
+    transition: right 0.35s cubic-bezier(0.4,0.2,0.2,1);
+    z-index: 150;
+    display: flex;
+  }
+  .nav-links.open {
+    right: 0;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+.desc-toggle {
+  display: none;
+}
+@media (max-width: 700px) {
+  .desc-toggle {
+    display: block;
+    width: 100%;
+    background: rgba(30,0,0,0.12);
+    color: #222;
+    border: none;
+    border-radius: 0 0 16px 16px;
+    font-size: 1.05rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 500;
+    padding: 10px 0;
+    margin: 0 auto;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .desc-toggle:active {
+    background: #ff003322;
+  }
+  .project-overlay {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: unset;
+    border-radius: 0 0 16px 16px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    background: linear-gradient(135deg, rgba(15, 0, 0, 0.97) 0%, rgba(33, 0, 0, 0.99) 100%);
+    transition: max-height 0.4s cubic-bezier(0.4,0.2,0.2,1), padding 0.3s;
+  }
+  .project-overlay[style*="max-height"] {
+    padding: 15px;
+  }
+  .projects-grid {
+    justify-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .project-card {
+    margin: 0 auto 24px auto;
+    width: 98vw;
+    max-width: 420px;
+    align-items: center;
+  }
+  .project-title, .project-description, .tech-stack, .project-actions {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.projects-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 48px auto 56px auto;
+  padding: 22px 28px;
+  border: 2px dashed #ff0033;
+  border-radius: 14px;
+  background: rgba(30,0,0,0.18);
+  color: #ff0033;
+  font-size: 1.18rem;
+  max-width: 600px;
+  box-shadow: 0 0 18px #ff003322;
+}
+.construction-icon {
+  font-size: 2.1rem;
+  filter: drop-shadow(0 0 6px #ff003355);
+}
+.construction-text {
+  font-size: 1.13rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ff0033;
+  text-shadow: 0 0 8px #ff003322;
 } 

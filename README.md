@@ -39,7 +39,7 @@ The contact form is fully functional using EmailJS service. Form submissions are
 
 ## 🌐 Live Demo
 
-Visit the live site: [Here]
+Visit the live site: [NaimLindsay.com]
 
 ---
 

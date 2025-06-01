@@ -7,12 +7,18 @@
   <!-- Load base styles first, then projects-specific styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="projects.css" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <!-- Fixed Navigation Bar: Stays at top when scrolling -->
   <nav class="navbar" aria-label="Main Navigation">
     <a href="./index.html" class="nav-brand">DevNom</a>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <!-- Current page link -->
       <li><a href="portfolio.html" class="nav-link active" aria-current="page">Projects</a></li>
       <!-- About page link -->
@@ -47,23 +53,21 @@
       <!-- Project Card 1: Enhanced with hover overlay -->
       <div class="project-card">
         <div class="project-content">
-          <img src="project1.jpg" alt="Project 1" class="project-img" />
-          <div class="project-title">E-Commerce Platform</div>
-          
+          <img src="Nova2.0.png" alt="Project Nova 2.0" class="project-img" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x180/1a1a1a/ff0033?text=No+Image';" />
+          <div class="project-title">Nova 2.0 [AI Assistant Bot]</div>
+          <button class="desc-toggle" aria-expanded="false">Show Description</button>
           <!-- Hover Overlay with Details -->
           <div class="project-overlay">
             <div class="project-description">
-              A full-stack e-commerce platform with user authentication, payment processing, and admin dashboard.
+              I built this simple AI assistant in C++ to practice basic AI logic and C++ syntax. It responds to user input with predefined answers. This was a great way for me to get comfortable with string handling and basic algorithms in C++.
             </div>
             <div class="tech-stack">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">MongoDB</span>
-              <span class="tech-tag">Stripe</span>
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">Xcode</span>
             </div>
             <div class="project-actions">
               <a href="#" class="action-btn demo-btn" target="_blank" rel="noopener">Live Demo</a>
-              <a href="#" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
+              <a href="https://github.com/DevNom7/Nova2.0" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
             </div>
           </div>
         </div>
@@ -72,154 +76,37 @@
       <!-- Project Card 2: Enhanced with hover overlay -->
       <div class="project-card">
         <div class="project-content">
-          <img src="project2.jpg" alt="Project 2" class="project-img" />
-          <div class="project-title">AI Task Manager</div>
-          
+          <img src="MoodTracker.png" alt="Project 2" class="project-img" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x180/1a1a1a/ff0033?text=No+Image';" />
+          <div class="project-title">Mood Tracker</div>
+          <button class="desc-toggle" aria-expanded="false">Show Description</button>
           <!-- Hover Overlay with Details -->
           <div class="project-overlay">
             <div class="project-description">
-              An intelligent task management app using AI to prioritize tasks and predict completion times.
+              I created this Mood Tracker web app to help me visualize my daily mood and learn more about frontend development. It features a calendar, mood selection, and simple analytics. 
+              Building this helped me practice DOM manipulation and data storage in JavaScript.
             </div>
             <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">TensorFlow</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
             </div>
             <div class="project-actions">
-              <a href="#" class="action-btn demo-btn" target="_blank" rel="noopener">Live Demo</a>
-              <a href="#" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
+              <a href="https://devnom7.github.io/mood-tracker/" class="action-btn demo-btn" target="_blank" rel="noopener">Live Demo</a>
+              <a href="https://github.com/DevNom7/mood-tracker" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Project Card 3: Mobile App -->
-      <div class="project-card">
-        <div class="project-content">
-          <img src="project3.jpg" alt="Project 3" class="project-img" />
-          <div class="project-title">Fitness Tracker App</div>
-          
-          <!-- Hover Overlay with Details -->
-          <div class="project-overlay">
-            <div class="project-description">
-              Cross-platform mobile app for tracking workouts, nutrition, and health metrics with social features.
-            </div>
-            <div class="tech-stack">
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">Redux</span>
-              <span class="tech-tag">Firebase</span>
-              <span class="tech-tag">Chart.js</span>
-            </div>
-            <div class="project-actions">
-              <a href="#" class="action-btn demo-btn" target="_blank" rel="noopener">App Store</a>
-              <a href="#" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Project Card 4: Data Visualization -->
-      <div class="project-card">
-        <div class="project-content">
-          <img src="project4.jpg" alt="Project 4" class="project-img" />
-          <div class="project-title">Climate Data Dashboard</div>
-          
-          <!-- Hover Overlay with Details -->
-          <div class="project-overlay">
-            <div class="project-description">
-              Interactive dashboard visualizing global climate data with real-time updates and predictive analytics.
-            </div>
-            <div class="tech-stack">
-              <span class="tech-tag">D3.js</span>
-              <span class="tech-tag">Vue.js</span>
-              <span class="tech-tag">Express</span>
-              <span class="tech-tag">Redis</span>
-            </div>
-            <div class="project-actions">
-              <a href="#" class="action-btn demo-btn" target="_blank" rel="noopener">Live Demo</a>
-              <a href="#" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Project Card 5: Blockchain/Web3 -->
-      <div class="project-card">
-        <div class="project-content">
-          <img src="project5.jpg" alt="Project 5" class="project-img" />
-          <div class="project-title">NFT Marketplace</div>
-          
-          <!-- Hover Overlay with Details -->
-          <div class="project-overlay">
-            <div class="project-description">
-              Decentralized marketplace for buying, selling, and trading NFTs with smart contract integration.
-            </div>
-            <div class="tech-stack">
-              <span class="tech-tag">Solidity</span>
-              <span class="tech-tag">Web3.js</span>
-              <span class="tech-tag">Next.js</span>
-              <span class="tech-tag">IPFS</span>
-            </div>
-            <div class="project-actions">
-              <a href="#" class="action-btn demo-btn" target="_blank" rel="noopener">Live Demo</a>
-              <a href="#" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Project Card 6: Game Development -->
-      <div class="project-card">
-        <div class="project-content">
-          <img src="project6.jpg" alt="Project 6" class="project-img" />
-          <div class="project-title">Space Exploration Game</div>
-          
-          <!-- Hover Overlay with Details -->
-          <div class="project-overlay">
-            <div class="project-description">
-              3D space exploration game with procedural generation, multiplayer support, and realistic physics.
-            </div>
-            <div class="tech-stack">
-              <span class="tech-tag">Unity</span>
-              <span class="tech-tag">C#</span>
-              <span class="tech-tag">Photon</span>
-              <span class="tech-tag">Blender</span>
-            </div>
-            <div class="project-actions">
-              <a href="#" class="action-btn demo-btn" target="_blank" rel="noopener">Play Game</a>
-              <a href="#" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Project Card 7: Terminal-based C++ Game Example -->
-      <div class="project-card">
-        <div class="project-content">
-          <img src="terminal-game.png" alt="Terminal Chess Game" class="project-img" />
-          <div class="project-title">Terminal Chess Engine</div>
-          
-          <!-- Hover Overlay with Details -->
-          <div class="project-overlay">
-            <div class="project-description">
-              Advanced chess engine with AI opponent, move validation, and ASCII board visualization. Features minimax algorithm with alpha-beta pruning.
-            </div>
-            <div class="tech-stack">
-              <span class="tech-tag">C++</span>
-              <span class="tech-tag">Minimax</span>
-              <span class="tech-tag">STL</span>
-              <span class="tech-tag">OOP</span>
-            </div>
-            <div class="project-actions">
-              <a href="#" class="action-btn demo-btn" target="_blank" rel="noopener">Watch Demo</a>
-              <a href="#" class="action-btn code-btn" target="_blank" rel="noopener">View Code</a>
-            </div>
-          </div>
-        </div>
-      </div>
       
       <!-- Add more project cards here as needed -->
+    </div>
+    <!-- Construction note -->
+    <div class="projects-note">
+      <span class="construction-icon">🚧</span>
+      <span class="construction-text">New projects are added monthly as I upload past work and continue 
+        learning and building more advanced applications.</span>
+      <span class="construction-icon">🚧</span>
     </div>
   </main>
   
